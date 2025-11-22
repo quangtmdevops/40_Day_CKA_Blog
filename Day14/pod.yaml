@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    env: test
+  name: pod4
+spec:
+  containers:
+  - image: nginx
+    name: pod4
+    resources: {}
+  tolerations:
+  - key: "gpu"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
