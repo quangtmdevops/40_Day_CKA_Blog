@@ -1,0 +1,5 @@
+.idea
+.dockerignore
+
+Day23/quangtm*
+Day23/csr-quangtm.yaml
