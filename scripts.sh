@@ -1,13 +1,14 @@
 #! /bin/bash
 homepath=/home/quangtm/personal/projects/40_Day_CKA_Blog
-
+set -e
 cd $homepath
 echo "Enter Day number:"
 read number
 
-mkdir "Day$number" || cp ~/Downloads/tmp/notion/"Day$number".zip "Day$number"
-
-cd "Day$number" && rm *.md && unzip "Day$number.zip"
+mkdir "Day$number" || true
+cp ~/Downloads/tmp/notion/"Day$number".zip "Day$number"
+#
+cd "Day$number" && rm -f *.md || unzip "Day$number.zip"
 zipfile=$(ls ExportBlock-*.zip)
 echo "[+] Unzipping $zipfile ..."
 unzip "$zipfile"
