@@ -1,0 +1,14 @@
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: allow-backend-to-mysql
+  namespace: quickstart
+spec:
+  selector: app == 'mysql'
+  types:
+  - Ingress
+  ingress:
+  - action: Allow
+    source:
+      selector: app == 'backend'
+
